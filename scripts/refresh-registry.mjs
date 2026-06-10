@@ -11,7 +11,7 @@ import {
 } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 
 const repoRoot = path.resolve(
@@ -19,14 +19,17 @@ const repoRoot = path.resolve(
   "..",
 );
 const sourceArgIndex = process.argv.indexOf("--source");
-const sourceRoot = path.resolve(
+const explicitSource =
   sourceArgIndex >= 0
     ? process.argv[sourceArgIndex + 1]
-    : (process.env.BAMBI_SOURCE_DIR ?? path.join(repoRoot, "..", "platform")),
-);
+    : process.env.BAMBI_SOURCE_DIR;
+const defaultSourceRoot = path.join(repoRoot, "..", "platform");
+const sourceRoot = path.resolve(explicitSource ?? defaultSourceRoot);
 const cliEntry = path.join(sourceRoot, "dist-cli", "index.js");
 const publicRoot = path.join(repoRoot, "public");
 const registryRoot = path.join(publicRoot, "registry");
+const manifestPath = path.join(publicRoot, "registry.json");
+const localRegistryUrl = pathToFileURL(publicRoot).href;
 const frameworks = ["vanilla", "react", "solid", "svelte", "vue"];
 const components = ["button", "tabs"];
 
@@ -76,12 +79,31 @@ async function hashFile(filePath) {
   };
 }
 
+if (!(await exists(sourceRoot))) {
+  if (explicitSource) {
+    throw new Error(`Registry source directory does not exist: ${sourceRoot}`);
+  }
+
+  if ((await exists(manifestPath)) && (await exists(registryRoot))) {
+    console.log(
+      `No local platform checkout found at ${sourceRoot}; using committed public registry.`,
+    );
+    process.exit(0);
+  }
+
+  throw new Error(
+    `No local platform checkout found at ${sourceRoot}, and no committed public registry exists.`,
+  );
+}
+
 if (!(await exists(cliEntry))) {
   run("pnpm", ["--dir", sourceRoot, "build:cli"]);
 }
 
-await rm(registryRoot, { recursive: true, force: true });
-await mkdir(registryRoot, { recursive: true });
+const nextRegistryRoot = await mkdtemp(
+  path.join(os.tmpdir(), "bambi-public-registry-"),
+);
+await mkdir(path.join(nextRegistryRoot, "generated"), { recursive: true });
 
 for (const framework of frameworks) {
   const tempRoot = await mkdtemp(
@@ -105,19 +127,25 @@ for (const framework of frameworks) {
       "registry",
       "--style-file",
       "registry/styles/index.css",
+      "--registry-url",
+      localRegistryUrl,
       "--force",
     ]);
   }
 
   await cp(
     path.join(tempRoot, "registry"),
-    path.join(registryRoot, "generated", framework),
+    path.join(nextRegistryRoot, "generated", framework),
     {
       recursive: true,
     },
   );
   await rm(tempRoot, { recursive: true, force: true });
 }
+
+await rm(registryRoot, { recursive: true, force: true });
+await cp(nextRegistryRoot, registryRoot, { recursive: true });
+await rm(nextRegistryRoot, { recursive: true, force: true });
 
 const generatedRoot = path.join(registryRoot, "generated");
 const generatedFiles = await walk(generatedRoot);
