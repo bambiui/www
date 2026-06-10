@@ -19,5 +19,8 @@
     "@astrojs/check": "^0.9.4",
     "astro": "^6.3.1",
     "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "bambiui": "0.1.1"
   }
 }

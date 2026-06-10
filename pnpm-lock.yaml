@@ -17,6 +17,10 @@ importers:
       typescript:
         specifier: ^5.9.2
         version: 5.9.3
+    devDependencies:
+      bambiui:
+        specifier: 0.1.1
+        version: 0.1.1
 
 packages:
 
@@ -672,6 +676,11 @@ packages:
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
+
+  bambiui@0.1.1:
+    resolution: {integrity: sha512-jq06DGA0JYMl87B8oC1LG1+F5GnoZHQCtopJAGfdVVKMe/L9wwr1xRm/VZmQDiFxd40TpvTbuNApknc9gS1Muw==}
+    engines: {node: '>=20.19'}
+    hasBin: true
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
@@ -2366,6 +2375,8 @@ snapshots:
   axobject-query@4.1.0: {}
 
   bail@2.0.2: {}
+
+  bambiui@0.1.1: {}
 
   boolbase@1.0.0: {}
 

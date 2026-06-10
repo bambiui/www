@@ -25,7 +25,8 @@ const explicitSource =
     : process.env.BAMBI_SOURCE_DIR;
 const defaultSourceRoot = path.join(repoRoot, "..", "platform");
 const sourceRoot = path.resolve(explicitSource ?? defaultSourceRoot);
-const cliEntry = path.join(sourceRoot, "dist-cli", "index.js");
+const sourceCliEntry = path.join(sourceRoot, "dist-cli", "index.js");
+const packageCliEntry = path.join(repoRoot, "node_modules", ".bin", "bambi");
 const publicRoot = path.join(repoRoot, "public");
 const registryRoot = path.join(publicRoot, "registry");
 const manifestPath = path.join(publicRoot, "registry.json");
@@ -79,25 +80,44 @@ async function hashFile(filePath) {
   };
 }
 
-if (!(await exists(sourceRoot))) {
-  if (explicitSource) {
-    throw new Error(`Registry source directory does not exist: ${sourceRoot}`);
+async function resolveCliCommand() {
+  if (explicitSource || (await exists(sourceRoot))) {
+    if (!(await exists(sourceRoot))) {
+      throw new Error(
+        `Registry source directory does not exist: ${sourceRoot}`,
+      );
+    }
+
+    if (!(await exists(sourceCliEntry))) {
+      run("pnpm", ["--dir", sourceRoot, "build:cli"]);
+    }
+
+    return { command: "node", prefixArgs: [sourceCliEntry] };
+  }
+
+  if (await exists(packageCliEntry)) {
+    console.log(
+      "No local platform checkout found; using installed bambiui CLI.",
+    );
+    return { command: packageCliEntry, prefixArgs: [] };
   }
 
   if ((await exists(manifestPath)) && (await exists(registryRoot))) {
     console.log(
-      `No local platform checkout found at ${sourceRoot}; using committed public registry.`,
+      `No local platform checkout or installed bambiui CLI found; using committed public registry.`,
     );
-    process.exit(0);
+    return undefined;
   }
 
   throw new Error(
-    `No local platform checkout found at ${sourceRoot}, and no committed public registry exists.`,
+    `No local platform checkout found at ${sourceRoot}, no installed bambiui CLI found, and no committed public registry exists.`,
   );
 }
 
-if (!(await exists(cliEntry))) {
-  run("pnpm", ["--dir", sourceRoot, "build:cli"]);
+const cliCommand = await resolveCliCommand();
+
+if (!cliCommand) {
+  process.exit(0);
 }
 
 const nextRegistryRoot = await mkdtemp(
@@ -115,8 +135,8 @@ for (const framework of frameworks) {
   );
 
   for (const component of components) {
-    run("node", [
-      cliEntry,
+    run(cliCommand.command, [
+      ...cliCommand.prefixArgs,
       "add",
       component,
       "--cwd",
