@@ -1,0 +1,497 @@
+{
+  "version": 1,
+  "name": "bambiui",
+  "source": "bambi-vanilla",
+  "components": [
+    "button",
+    "tabs"
+  ],
+  "frameworks": [
+    "vanilla",
+    "react",
+    "solid",
+    "svelte",
+    "vue"
+  ],
+  "entrypoints": {
+    "manifest": "registry.json",
+    "generated": "registry/generated"
+  },
+  "files": [
+    {
+      "path": "registry/generated/react/auto-init.ts",
+      "hash": "f7bc2fcfc1ff397227bca671ef900f24ffa07d0286ca560963d2affffb947d18",
+      "size": 666
+    },
+    {
+      "path": "registry/generated/react/components/button.ts",
+      "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
+      "size": 1799
+    },
+    {
+      "path": "registry/generated/react/components/tabs.ts",
+      "hash": "efa62c4f821833d1afa13a323a52bc7e583d53abad7261fff32aee7bf2cf20cc",
+      "size": 8472
+    },
+    {
+      "path": "registry/generated/react/react/attrs.ts",
+      "hash": "7d7d9c15036ed5f8956fb61c1769629b30ca29469f7cb48e5c15e273450583ad",
+      "size": 1017
+    },
+    {
+      "path": "registry/generated/react/react/button.tsx",
+      "hash": "bce47378ef3cd562d2cd508324f5f26358d2730ce1a949ed52226f2cba89fab2",
+      "size": 1806
+    },
+    {
+      "path": "registry/generated/react/react/tabs.tsx",
+      "hash": "f06ced674460cad89c15810c88bce1c6ec55f3586db0f8c90459a5a170dc17f8",
+      "size": 2843
+    },
+    {
+      "path": "registry/generated/react/react/use-bambi.ts",
+      "hash": "f1c9b0ff2c4747316e8edc7f0c1d66119a3f16325bd45cbeee32a6488fb5184c",
+      "size": 438
+    },
+    {
+      "path": "registry/generated/react/shared/a11y.ts",
+      "hash": "af7aa3ee3d1ff8687881abc61c0c0589e49dd85d891ed0c771df7fc31726f0b0",
+      "size": 166
+    },
+    {
+      "path": "registry/generated/react/shared/attributes.ts",
+      "hash": "8f87c5bc21f21979f850e8f8d46518cc02f80968e5f708ac048135d15fdeb6c6",
+      "size": 688
+    },
+    {
+      "path": "registry/generated/react/shared/define-component.ts",
+      "hash": "350f52fbb24d357d0da7bde00c606a6a09f098ed1fa312df0701c66e236a1b2f",
+      "size": 4690
+    },
+    {
+      "path": "registry/generated/react/shared/events.ts",
+      "hash": "c3512cf96aa38862dc31487e50cfdc1923a4b43b14b49f34cbd9e6c428e5308e",
+      "size": 727
+    },
+    {
+      "path": "registry/generated/react/shared/focus.ts",
+      "hash": "e83ffe91f8960af21536b21e8cd9b4220349b3340c73133f924f6b5551442a09",
+      "size": 357
+    },
+    {
+      "path": "registry/generated/react/shared/ids.ts",
+      "hash": "5b25854f80c7fb1ec27fc0c48fd86c5c9faf492c04a167793d60d7a82ade0c15",
+      "size": 465
+    },
+    {
+      "path": "registry/generated/react/shared/keyboard.ts",
+      "hash": "3a44c51b2ef1a11c4014049b98acd3a2a7211d4f6344167262c46f2b5385c6e2",
+      "size": 1089
+    },
+    {
+      "path": "registry/generated/react/shared/lifecycle.ts",
+      "hash": "97deee112cdbd5655bcb9a6442a1cf4f036783766517feff58f65bfb2620aa96",
+      "size": 446
+    },
+    {
+      "path": "registry/generated/react/shared/parts.ts",
+      "hash": "0ab7144bdb7d8a8580931b2778bd3f1f98ea63d4bc4fd3fbf9349f5acccd4de6",
+      "size": 295
+    },
+    {
+      "path": "registry/generated/react/shared/props.ts",
+      "hash": "4f055610e5580e6ffb2fafc5b762a47eb6ad56a7a83a737aaf260977d155c184",
+      "size": 1448
+    },
+    {
+      "path": "registry/generated/react/styles/button.css",
+      "hash": "fdaee8011c271bb88160ead9e80f10b5a71c55a833bb365002ecf99face1e7fd",
+      "size": 5128
+    },
+    {
+      "path": "registry/generated/react/styles/index.css",
+      "hash": "1720785d47d3859bc9150bc7a0ea5691100559d4c073f9bc533a0a2b73401db4",
+      "size": 70
+    },
+    {
+      "path": "registry/generated/react/styles/tabs.css",
+      "hash": "8272b6ea6e0f571ffc5ddc8df98a416fe68cf09b67b4e0948a5054f8ae937a4c",
+      "size": 1565
+    },
+    {
+      "path": "registry/generated/react/styles/tokens.css",
+      "hash": "7c52f300d23eb884585b62c97366feadb0f31023fc9bdb546f6c6c122906f8de",
+      "size": 7739
+    },
+    {
+      "path": "registry/generated/solid/auto-init.ts",
+      "hash": "f7bc2fcfc1ff397227bca671ef900f24ffa07d0286ca560963d2affffb947d18",
+      "size": 666
+    },
+    {
+      "path": "registry/generated/solid/components/button.ts",
+      "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
+      "size": 1799
+    },
+    {
+      "path": "registry/generated/solid/components/tabs.ts",
+      "hash": "efa62c4f821833d1afa13a323a52bc7e583d53abad7261fff32aee7bf2cf20cc",
+      "size": 8472
+    },
+    {
+      "path": "registry/generated/solid/shared/a11y.ts",
+      "hash": "af7aa3ee3d1ff8687881abc61c0c0589e49dd85d891ed0c771df7fc31726f0b0",
+      "size": 166
+    },
+    {
+      "path": "registry/generated/solid/shared/attributes.ts",
+      "hash": "8f87c5bc21f21979f850e8f8d46518cc02f80968e5f708ac048135d15fdeb6c6",
+      "size": 688
+    },
+    {
+      "path": "registry/generated/solid/shared/define-component.ts",
+      "hash": "350f52fbb24d357d0da7bde00c606a6a09f098ed1fa312df0701c66e236a1b2f",
+      "size": 4690
+    },
+    {
+      "path": "registry/generated/solid/shared/events.ts",
+      "hash": "c3512cf96aa38862dc31487e50cfdc1923a4b43b14b49f34cbd9e6c428e5308e",
+      "size": 727
+    },
+    {
+      "path": "registry/generated/solid/shared/focus.ts",
+      "hash": "e83ffe91f8960af21536b21e8cd9b4220349b3340c73133f924f6b5551442a09",
+      "size": 357
+    },
+    {
+      "path": "registry/generated/solid/shared/ids.ts",
+      "hash": "5b25854f80c7fb1ec27fc0c48fd86c5c9faf492c04a167793d60d7a82ade0c15",
+      "size": 465
+    },
+    {
+      "path": "registry/generated/solid/shared/keyboard.ts",
+      "hash": "3a44c51b2ef1a11c4014049b98acd3a2a7211d4f6344167262c46f2b5385c6e2",
+      "size": 1089
+    },
+    {
+      "path": "registry/generated/solid/shared/lifecycle.ts",
+      "hash": "97deee112cdbd5655bcb9a6442a1cf4f036783766517feff58f65bfb2620aa96",
+      "size": 446
+    },
+    {
+      "path": "registry/generated/solid/shared/parts.ts",
+      "hash": "0ab7144bdb7d8a8580931b2778bd3f1f98ea63d4bc4fd3fbf9349f5acccd4de6",
+      "size": 295
+    },
+    {
+      "path": "registry/generated/solid/shared/props.ts",
+      "hash": "4f055610e5580e6ffb2fafc5b762a47eb6ad56a7a83a737aaf260977d155c184",
+      "size": 1448
+    },
+    {
+      "path": "registry/generated/solid/solid/button.tsx",
+      "hash": "26da38e94f9c8cfda4097188d53f2fed7ad5598cd76a0220d0b7d4a3be1c0f3a",
+      "size": 1518
+    },
+    {
+      "path": "registry/generated/solid/solid/tabs.tsx",
+      "hash": "80f0d01d94b4a47a209c012bcb1bb41497818c289602a02787b023fc953f2dab",
+      "size": 1565
+    },
+    {
+      "path": "registry/generated/solid/styles/button.css",
+      "hash": "fdaee8011c271bb88160ead9e80f10b5a71c55a833bb365002ecf99face1e7fd",
+      "size": 5128
+    },
+    {
+      "path": "registry/generated/solid/styles/index.css",
+      "hash": "1720785d47d3859bc9150bc7a0ea5691100559d4c073f9bc533a0a2b73401db4",
+      "size": 70
+    },
+    {
+      "path": "registry/generated/solid/styles/tabs.css",
+      "hash": "8272b6ea6e0f571ffc5ddc8df98a416fe68cf09b67b4e0948a5054f8ae937a4c",
+      "size": 1565
+    },
+    {
+      "path": "registry/generated/solid/styles/tokens.css",
+      "hash": "7c52f300d23eb884585b62c97366feadb0f31023fc9bdb546f6c6c122906f8de",
+      "size": 7739
+    },
+    {
+      "path": "registry/generated/svelte/auto-init.ts",
+      "hash": "f7bc2fcfc1ff397227bca671ef900f24ffa07d0286ca560963d2affffb947d18",
+      "size": 666
+    },
+    {
+      "path": "registry/generated/svelte/components/button.ts",
+      "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
+      "size": 1799
+    },
+    {
+      "path": "registry/generated/svelte/components/tabs.ts",
+      "hash": "efa62c4f821833d1afa13a323a52bc7e583d53abad7261fff32aee7bf2cf20cc",
+      "size": 8472
+    },
+    {
+      "path": "registry/generated/svelte/shared/a11y.ts",
+      "hash": "af7aa3ee3d1ff8687881abc61c0c0589e49dd85d891ed0c771df7fc31726f0b0",
+      "size": 166
+    },
+    {
+      "path": "registry/generated/svelte/shared/attributes.ts",
+      "hash": "8f87c5bc21f21979f850e8f8d46518cc02f80968e5f708ac048135d15fdeb6c6",
+      "size": 688
+    },
+    {
+      "path": "registry/generated/svelte/shared/define-component.ts",
+      "hash": "350f52fbb24d357d0da7bde00c606a6a09f098ed1fa312df0701c66e236a1b2f",
+      "size": 4690
+    },
+    {
+      "path": "registry/generated/svelte/shared/events.ts",
+      "hash": "c3512cf96aa38862dc31487e50cfdc1923a4b43b14b49f34cbd9e6c428e5308e",
+      "size": 727
+    },
+    {
+      "path": "registry/generated/svelte/shared/focus.ts",
+      "hash": "e83ffe91f8960af21536b21e8cd9b4220349b3340c73133f924f6b5551442a09",
+      "size": 357
+    },
+    {
+      "path": "registry/generated/svelte/shared/ids.ts",
+      "hash": "5b25854f80c7fb1ec27fc0c48fd86c5c9faf492c04a167793d60d7a82ade0c15",
+      "size": 465
+    },
+    {
+      "path": "registry/generated/svelte/shared/keyboard.ts",
+      "hash": "3a44c51b2ef1a11c4014049b98acd3a2a7211d4f6344167262c46f2b5385c6e2",
+      "size": 1089
+    },
+    {
+      "path": "registry/generated/svelte/shared/lifecycle.ts",
+      "hash": "97deee112cdbd5655bcb9a6442a1cf4f036783766517feff58f65bfb2620aa96",
+      "size": 446
+    },
+    {
+      "path": "registry/generated/svelte/shared/parts.ts",
+      "hash": "0ab7144bdb7d8a8580931b2778bd3f1f98ea63d4bc4fd3fbf9349f5acccd4de6",
+      "size": 295
+    },
+    {
+      "path": "registry/generated/svelte/shared/props.ts",
+      "hash": "4f055610e5580e6ffb2fafc5b762a47eb6ad56a7a83a737aaf260977d155c184",
+      "size": 1448
+    },
+    {
+      "path": "registry/generated/svelte/styles/button.css",
+      "hash": "fdaee8011c271bb88160ead9e80f10b5a71c55a833bb365002ecf99face1e7fd",
+      "size": 5128
+    },
+    {
+      "path": "registry/generated/svelte/styles/index.css",
+      "hash": "1720785d47d3859bc9150bc7a0ea5691100559d4c073f9bc533a0a2b73401db4",
+      "size": 70
+    },
+    {
+      "path": "registry/generated/svelte/styles/tabs.css",
+      "hash": "8272b6ea6e0f571ffc5ddc8df98a416fe68cf09b67b4e0948a5054f8ae937a4c",
+      "size": 1565
+    },
+    {
+      "path": "registry/generated/svelte/styles/tokens.css",
+      "hash": "7c52f300d23eb884585b62c97366feadb0f31023fc9bdb546f6c6c122906f8de",
+      "size": 7739
+    },
+    {
+      "path": "registry/generated/svelte/svelte/Button.svelte",
+      "hash": "f71ed98985657e39df4c97371fdea5f9006ec36da2db3eed56d3f6a6510829c6",
+      "size": 1165
+    },
+    {
+      "path": "registry/generated/svelte/svelte/Tabs.svelte",
+      "hash": "a34d6c70778268920e06c910494b04ec25c1b0efcac80b65f3aea331cdf3a612",
+      "size": 1151
+    },
+    {
+      "path": "registry/generated/vanilla/auto-init.ts",
+      "hash": "f7bc2fcfc1ff397227bca671ef900f24ffa07d0286ca560963d2affffb947d18",
+      "size": 666
+    },
+    {
+      "path": "registry/generated/vanilla/components/button.ts",
+      "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
+      "size": 1799
+    },
+    {
+      "path": "registry/generated/vanilla/components/tabs.ts",
+      "hash": "efa62c4f821833d1afa13a323a52bc7e583d53abad7261fff32aee7bf2cf20cc",
+      "size": 8472
+    },
+    {
+      "path": "registry/generated/vanilla/shared/a11y.ts",
+      "hash": "af7aa3ee3d1ff8687881abc61c0c0589e49dd85d891ed0c771df7fc31726f0b0",
+      "size": 166
+    },
+    {
+      "path": "registry/generated/vanilla/shared/attributes.ts",
+      "hash": "8f87c5bc21f21979f850e8f8d46518cc02f80968e5f708ac048135d15fdeb6c6",
+      "size": 688
+    },
+    {
+      "path": "registry/generated/vanilla/shared/define-component.ts",
+      "hash": "350f52fbb24d357d0da7bde00c606a6a09f098ed1fa312df0701c66e236a1b2f",
+      "size": 4690
+    },
+    {
+      "path": "registry/generated/vanilla/shared/events.ts",
+      "hash": "c3512cf96aa38862dc31487e50cfdc1923a4b43b14b49f34cbd9e6c428e5308e",
+      "size": 727
+    },
+    {
+      "path": "registry/generated/vanilla/shared/focus.ts",
+      "hash": "e83ffe91f8960af21536b21e8cd9b4220349b3340c73133f924f6b5551442a09",
+      "size": 357
+    },
+    {
+      "path": "registry/generated/vanilla/shared/ids.ts",
+      "hash": "5b25854f80c7fb1ec27fc0c48fd86c5c9faf492c04a167793d60d7a82ade0c15",
+      "size": 465
+    },
+    {
+      "path": "registry/generated/vanilla/shared/keyboard.ts",
+      "hash": "3a44c51b2ef1a11c4014049b98acd3a2a7211d4f6344167262c46f2b5385c6e2",
+      "size": 1089
+    },
+    {
+      "path": "registry/generated/vanilla/shared/lifecycle.ts",
+      "hash": "97deee112cdbd5655bcb9a6442a1cf4f036783766517feff58f65bfb2620aa96",
+      "size": 446
+    },
+    {
+      "path": "registry/generated/vanilla/shared/parts.ts",
+      "hash": "0ab7144bdb7d8a8580931b2778bd3f1f98ea63d4bc4fd3fbf9349f5acccd4de6",
+      "size": 295
+    },
+    {
+      "path": "registry/generated/vanilla/shared/props.ts",
+      "hash": "4f055610e5580e6ffb2fafc5b762a47eb6ad56a7a83a737aaf260977d155c184",
+      "size": 1448
+    },
+    {
+      "path": "registry/generated/vanilla/styles/button.css",
+      "hash": "fdaee8011c271bb88160ead9e80f10b5a71c55a833bb365002ecf99face1e7fd",
+      "size": 5128
+    },
+    {
+      "path": "registry/generated/vanilla/styles/index.css",
+      "hash": "1720785d47d3859bc9150bc7a0ea5691100559d4c073f9bc533a0a2b73401db4",
+      "size": 70
+    },
+    {
+      "path": "registry/generated/vanilla/styles/tabs.css",
+      "hash": "8272b6ea6e0f571ffc5ddc8df98a416fe68cf09b67b4e0948a5054f8ae937a4c",
+      "size": 1565
+    },
+    {
+      "path": "registry/generated/vanilla/styles/tokens.css",
+      "hash": "7c52f300d23eb884585b62c97366feadb0f31023fc9bdb546f6c6c122906f8de",
+      "size": 7739
+    },
+    {
+      "path": "registry/generated/vue/auto-init.ts",
+      "hash": "f7bc2fcfc1ff397227bca671ef900f24ffa07d0286ca560963d2affffb947d18",
+      "size": 666
+    },
+    {
+      "path": "registry/generated/vue/components/button.ts",
+      "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
+      "size": 1799
+    },
+    {
+      "path": "registry/generated/vue/components/tabs.ts",
+      "hash": "efa62c4f821833d1afa13a323a52bc7e583d53abad7261fff32aee7bf2cf20cc",
+      "size": 8472
+    },
+    {
+      "path": "registry/generated/vue/shared/a11y.ts",
+      "hash": "af7aa3ee3d1ff8687881abc61c0c0589e49dd85d891ed0c771df7fc31726f0b0",
+      "size": 166
+    },
+    {
+      "path": "registry/generated/vue/shared/attributes.ts",
+      "hash": "8f87c5bc21f21979f850e8f8d46518cc02f80968e5f708ac048135d15fdeb6c6",
+      "size": 688
+    },
+    {
+      "path": "registry/generated/vue/shared/define-component.ts",
+      "hash": "350f52fbb24d357d0da7bde00c606a6a09f098ed1fa312df0701c66e236a1b2f",
+      "size": 4690
+    },
+    {
+      "path": "registry/generated/vue/shared/events.ts",
+      "hash": "c3512cf96aa38862dc31487e50cfdc1923a4b43b14b49f34cbd9e6c428e5308e",
+      "size": 727
+    },
+    {
+      "path": "registry/generated/vue/shared/focus.ts",
+      "hash": "e83ffe91f8960af21536b21e8cd9b4220349b3340c73133f924f6b5551442a09",
+      "size": 357
+    },
+    {
+      "path": "registry/generated/vue/shared/ids.ts",
+      "hash": "5b25854f80c7fb1ec27fc0c48fd86c5c9faf492c04a167793d60d7a82ade0c15",
+      "size": 465
+    },
+    {
+      "path": "registry/generated/vue/shared/keyboard.ts",
+      "hash": "3a44c51b2ef1a11c4014049b98acd3a2a7211d4f6344167262c46f2b5385c6e2",
+      "size": 1089
+    },
+    {
+      "path": "registry/generated/vue/shared/lifecycle.ts",
+      "hash": "97deee112cdbd5655bcb9a6442a1cf4f036783766517feff58f65bfb2620aa96",
+      "size": 446
+    },
+    {
+      "path": "registry/generated/vue/shared/parts.ts",
+      "hash": "0ab7144bdb7d8a8580931b2778bd3f1f98ea63d4bc4fd3fbf9349f5acccd4de6",
+      "size": 295
+    },
+    {
+      "path": "registry/generated/vue/shared/props.ts",
+      "hash": "4f055610e5580e6ffb2fafc5b762a47eb6ad56a7a83a737aaf260977d155c184",
+      "size": 1448
+    },
+    {
+      "path": "registry/generated/vue/styles/button.css",
+      "hash": "fdaee8011c271bb88160ead9e80f10b5a71c55a833bb365002ecf99face1e7fd",
+      "size": 5128
+    },
+    {
+      "path": "registry/generated/vue/styles/index.css",
+      "hash": "1720785d47d3859bc9150bc7a0ea5691100559d4c073f9bc533a0a2b73401db4",
+      "size": 70
+    },
+    {
+      "path": "registry/generated/vue/styles/tabs.css",
+      "hash": "8272b6ea6e0f571ffc5ddc8df98a416fe68cf09b67b4e0948a5054f8ae937a4c",
+      "size": 1565
+    },
+    {
+      "path": "registry/generated/vue/styles/tokens.css",
+      "hash": "7c52f300d23eb884585b62c97366feadb0f31023fc9bdb546f6c6c122906f8de",
+      "size": 7739
+    },
+    {
+      "path": "registry/generated/vue/vue/Button.vue",
+      "hash": "2d85efed60147938f917a227d1a57d693059213d1bf4699efc1d1a83f89ab27d",
+      "size": 1362
+    },
+    {
+      "path": "registry/generated/vue/vue/Tabs.vue",
+      "hash": "a6f5b087b7b5e5bf8d4c0c8fc1384a248d2f866d3b7aaa5ae70ad98f9f3fd183",
+      "size": 1394
+    }
+  ]
+}

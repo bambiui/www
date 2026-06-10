@@ -1,0 +1,256 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "bambiui - Source-distributed UI components",
+  description = "CLI-first, source-distributed UI components copied into your app as source.",
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? "https://bambiui.com").toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#111827" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="bambiui" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="bambiui home">
+        <img src="/favicon.svg" alt="" width="28" height="28" />
+        <span>bambiui</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/registry.json">registry.json</a>
+        <a href="https://www.npmjs.com/package/bambiui">npm</a>
+        <a href="https://github.com/bambiui/platform">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-muted: #eef2f7;
+    --text: #111827;
+    --muted: #5b6472;
+    --border: #d9e0ea;
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --radius: 18px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    color: var(--text);
+    background:
+      radial-gradient(circle at 20% 0%, rgba(79, 70, 229, 0.16), transparent 34rem),
+      radial-gradient(circle at 85% 12%, rgba(17, 24, 39, 0.08), transparent 28rem),
+      var(--bg);
+  }
+
+  a { color: inherit; }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 850;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+  }
+
+  .brand img { display: block; border-radius: 8px; }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  nav a { text-decoration: none; }
+  nav a:hover { color: var(--text); }
+
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  .eyebrow {
+    margin: 0 0 14px;
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  h1, h2, h3, p { overflow-wrap: anywhere; }
+
+  h1 {
+    margin: 0;
+    max-width: 13ch;
+    font-size: clamp(3.2rem, 8vw, 6.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+
+  h3 { margin: 0 0 10px; font-size: 1.05rem; }
+
+  .lede {
+    max-width: 680px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.8rem;
+    border-radius: 999px;
+    padding: 0 1.2rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .button-link.primary { color: white; background: var(--text); }
+  .button-link.primary:hover { background: var(--primary-dark); }
+  .button-link.secondary { border: 1px solid var(--border); background: var(--surface); }
+
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .terminal, .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+  }
+
+  .terminal { overflow: hidden; }
+
+  .terminal-bar {
+    display: flex;
+    gap: 8px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-muted);
+  }
+
+  .terminal-bar span {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: #94a3b8;
+  }
+
+  pre {
+    margin: 0;
+    padding: 24px;
+    overflow-x: auto;
+    color: #dbeafe;
+    background: #0f172a;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+  .section { margin-top: 96px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .card { padding: 22px; }
+  .card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+  .registry-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .registry-list a {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    text-decoration: none;
+  }
+
+  .registry-list span { color: var(--muted); font-size: 0.9rem; }
+
+  @media (max-width: 820px) {
+    .site-header, .split { display: block; }
+    nav { margin-top: 18px; }
+    .terminal { margin-top: 32px; }
+    .grid, .registry-list { grid-template-columns: 1fr; }
+  }
+</style>

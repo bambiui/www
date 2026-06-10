@@ -1,0 +1,22 @@
+{
+  "name": "@bambiui/www",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "astro dev --port 3000",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check && astro build",
+    "registry:refresh": "node scripts/refresh-registry.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^6.3.1",
+    "typescript": "^5.9.2"
+  }
+}

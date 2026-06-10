@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "bambiui - Source-distributed UI components";
+const description =
+  "Landing page and static registry host for the standalone bambiui component CLI.";
+---
+<BaseLayout title={title} description={description}>
+  <section class="split" aria-labelledby="hero-title">
+    <div>
+      <p class="eyebrow">bambiui registry</p>
+      <h1 id="hero-title">Own your component source.</h1>
+      <p class="lede">
+        bambiui is a CLI-first component system. The registry is served as static
+        source files, and the CLI copies Button and Tabs into your app with no runtime
+        package dependency.
+      </p>
+      <div class="actions">
+        <a class="button-link primary" href="/registry.json">Open registry</a>
+        <a class="button-link secondary" href="https://www.npmjs.com/package/bambiui">Install CLI</a>
+        <a class="button-link secondary" href="https://github.com/bambiui/platform">Source</a>
+      </div>
+    </div>
+
+    <div class="terminal" aria-label="Installation commands">
+      <div class="terminal-bar"><span></span><span></span><span></span></div>
+      <pre><code>npm create astro@latest my-app
+npm install -D bambiui
+npx bambi init --yes
+npx bambi add button --framework react
+npx bambi add tabs --framework react</code></pre>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="registry-title">
+    <p class="eyebrow">Static public registry</p>
+    <h2 id="registry-title">Generated from bambi-vanilla.</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Current components</h3>
+        <p>Button and Tabs are generated for vanilla, React, Solid, Svelte and Vue.</p>
+      </article>
+      <article class="card">
+        <h3>Source distributed</h3>
+        <p>Files under <code>/registry/generated</code> are safe to copy into user projects.</p>
+      </article>
+      <article class="card">
+        <h3>SSR-safe</h3>
+        <p>Generated auto-init and framework wrappers avoid browser globals during SSR.</p>
+      </article>
+    </div>
+
+    <div class="registry-list" aria-label="Registry links">
+      <a href="/registry.json"><strong>Manifest</strong><span>/registry.json</span></a>
+      <a href="/registry/generated/react/react/button.tsx"><strong>React Button</strong><span>react/button.tsx</span></a>
+      <a href="/registry/generated/react/react/tabs.tsx"><strong>React Tabs</strong><span>react/tabs.tsx</span></a>
+      <a href="/registry/generated/vanilla/auto-init.ts"><strong>Vanilla auto-init</strong><span>vanilla/auto-init.ts</span></a>
+    </div>
+  </section>
+</BaseLayout>
