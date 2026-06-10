@@ -1,7 +1,7 @@
 {
   "version": 1,
   "name": "bambiui",
-  "source": "bambi-vanilla",
+  "source": "platform",
   "components": [
     "button",
     "tabs"

@@ -1,14 +1,28 @@
 import { createHash } from "node:crypto";
-import { cp, mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import {
+  cp,
+  mkdir,
+  mkdtemp,
+  readdir,
+  readFile,
+  rm,
+  stat,
+  writeFile,
+} from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const repoRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+);
 const sourceArgIndex = process.argv.indexOf("--source");
 const sourceRoot = path.resolve(
-  sourceArgIndex >= 0 ? process.argv[sourceArgIndex + 1] : process.env.BAMBI_SOURCE_DIR ?? path.join(repoRoot, "..", "bambi-vanilla"),
+  sourceArgIndex >= 0
+    ? process.argv[sourceArgIndex + 1]
+    : (process.env.BAMBI_SOURCE_DIR ?? path.join(repoRoot, "..", "platform")),
 );
 const cliEntry = path.join(sourceRoot, "dist-cli", "index.js");
 const publicRoot = path.join(repoRoot, "public");
@@ -23,7 +37,9 @@ function run(command, args, options = {}) {
   });
 
   if (result.status !== 0) {
-    throw new Error(`${command} ${args.join(" ")} failed with exit code ${result.status}`);
+    throw new Error(
+      `${command} ${args.join(" ")} failed with exit code ${result.status}`,
+    );
   }
 }
 
@@ -43,7 +59,7 @@ async function walk(dir, base = dir) {
   for (const entry of entries) {
     const absolute = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      files.push(...await walk(absolute, base));
+      files.push(...(await walk(absolute, base)));
     } else if (entry.isFile()) {
       files.push(path.relative(base, absolute).replaceAll(path.sep, "/"));
     }
@@ -60,7 +76,7 @@ async function hashFile(filePath) {
   };
 }
 
-if (!await exists(cliEntry)) {
+if (!(await exists(cliEntry))) {
   run("pnpm", ["--dir", sourceRoot, "build:cli"]);
 }
 
@@ -68,8 +84,13 @@ await rm(registryRoot, { recursive: true, force: true });
 await mkdir(registryRoot, { recursive: true });
 
 for (const framework of frameworks) {
-  const tempRoot = await mkdtemp(path.join(os.tmpdir(), `bambi-registry-${framework}-`));
-  await writeFile(path.join(tempRoot, "package.json"), JSON.stringify({ type: "module" }, null, 2));
+  const tempRoot = await mkdtemp(
+    path.join(os.tmpdir(), `bambi-registry-${framework}-`),
+  );
+  await writeFile(
+    path.join(tempRoot, "package.json"),
+    JSON.stringify({ type: "module" }, null, 2),
+  );
 
   for (const component of components) {
     run("node", [
@@ -88,9 +109,13 @@ for (const framework of frameworks) {
     ]);
   }
 
-  await cp(path.join(tempRoot, "registry"), path.join(registryRoot, "generated", framework), {
-    recursive: true,
-  });
+  await cp(
+    path.join(tempRoot, "registry"),
+    path.join(registryRoot, "generated", framework),
+    {
+      recursive: true,
+    },
+  );
   await rm(tempRoot, { recursive: true, force: true });
 }
 
@@ -101,14 +126,14 @@ for (const relativePath of generatedFiles) {
   const publicPath = `registry/generated/${relativePath}`;
   files.push({
     path: publicPath,
-    ...await hashFile(path.join(generatedRoot, relativePath)),
+    ...(await hashFile(path.join(generatedRoot, relativePath))),
   });
 }
 
 const manifest = {
   version: 1,
   name: "bambiui",
-  source: "bambi-vanilla",
+  source: "platform",
   components,
   frameworks,
   entrypoints: {
@@ -124,4 +149,6 @@ await writeFile(
 `,
 );
 
-console.log(`Wrote ${files.length} registry files to ${path.relative(repoRoot, registryRoot)}`);
+console.log(
+  `Wrote ${files.length} registry files to ${path.relative(repoRoot, registryRoot)}`,
+);
