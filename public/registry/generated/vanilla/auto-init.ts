@@ -1,10 +1,11 @@
 import { badge } from "./components/badge";
 import { button } from "./components/button";
+import { kbd } from "./components/kbd";
 import { tabs } from "./components/tabs";
 
 type ComponentRoot = Document | DocumentFragment | HTMLElement;
 
-export const components = [badge, button, tabs] as const;
+export const components = [badge, button, kbd, tabs] as const;
 
 function getDefaultRoot(): Document | undefined {
   return typeof document === "undefined" ? undefined : document;

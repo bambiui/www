@@ -28,6 +28,17 @@ export function buttonAttrs(options: ButtonAttrsOptions = {}) {
   };
 }
 
+export interface KbdAttrsOptions {
+  size?: "sm" | "md" | "lg";
+}
+
+export function kbdAttrs(options: KbdAttrsOptions = {}) {
+  return {
+    "data-bambi-kbd": "",
+    "data-size": options.size ?? "sm",
+  };
+}
+
 export interface TabsAttrsOptions {
   value?: string;
   defaultValue?: string;

@@ -5,6 +5,7 @@
   "components": [
     "badge",
     "button",
+    "kbd",
     "tabs"
   ],
   "frameworks": [
@@ -21,8 +22,8 @@
   "files": [
     {
       "path": "registry/generated/react/auto-init.ts",
-      "hash": "c474a27e7251218c5cdafc8261f03295870a23dec9dac84d745aa205cd568f42",
-      "size": 717
+      "hash": "95604517b8f7bfbdfbea29f3cb900151f164feaaa2014b0d9f97885f7691cb96",
+      "size": 762
     },
     {
       "path": "registry/generated/react/components/badge.ts",
@@ -35,14 +36,19 @@
       "size": 1799
     },
     {
+      "path": "registry/generated/react/components/kbd.ts",
+      "hash": "502c48293722878b806126c4024a69a9a4846bb104d7e36ec6dcec9b5d35a183",
+      "size": 634
+    },
+    {
       "path": "registry/generated/react/components/tabs.ts",
       "hash": "efa62c4f821833d1afa13a323a52bc7e583d53abad7261fff32aee7bf2cf20cc",
       "size": 8472
     },
     {
       "path": "registry/generated/react/react/attrs.ts",
-      "hash": "6c9be93e01aa63f470d19e41154de18fee86336b22101e0abfda3715ab1cad34",
-      "size": 1368
+      "hash": "5ba29e7816192b45854c4a884009747204890ec371096e2e94ce4ec3b386437e",
+      "size": 1577
     },
     {
       "path": "registry/generated/react/react/badge.tsx",
@@ -53,6 +59,11 @@
       "path": "registry/generated/react/react/button.tsx",
       "hash": "7eb5adaa60178de7a94c2763dcb598eb0869df9df8c156cc22931a0caf9ba875",
       "size": 1874
+    },
+    {
+      "path": "registry/generated/react/react/kbd.tsx",
+      "hash": "2e2aeb874515ac04e8cbd8ca2391c65304689a50a2e34ded209189847fad745f",
+      "size": 1325
     },
     {
       "path": "registry/generated/react/react/tabs.tsx",
@@ -126,8 +137,13 @@
     },
     {
       "path": "registry/generated/react/styles/index.css",
-      "hash": "cae89075f0c641c67d2b9aab9e2cedd2f09ee47868882b24ae19f3360bb77b17",
-      "size": 93
+      "hash": "dfe631f73d7c49d1e5304a70f351446175163971546404f4e9b92873e9ea65e7",
+      "size": 114
+    },
+    {
+      "path": "registry/generated/react/styles/kbd.css",
+      "hash": "533a95c5b2eee97999e3978d987ad618dacd0280276cfb5d74de74063ab917bd",
+      "size": 2116
     },
     {
       "path": "registry/generated/react/styles/tabs.css",
@@ -141,8 +157,8 @@
     },
     {
       "path": "registry/generated/solid/auto-init.ts",
-      "hash": "c474a27e7251218c5cdafc8261f03295870a23dec9dac84d745aa205cd568f42",
-      "size": 717
+      "hash": "95604517b8f7bfbdfbea29f3cb900151f164feaaa2014b0d9f97885f7691cb96",
+      "size": 762
     },
     {
       "path": "registry/generated/solid/components/badge.ts",
@@ -153,6 +169,11 @@
       "path": "registry/generated/solid/components/button.ts",
       "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
       "size": 1799
+    },
+    {
+      "path": "registry/generated/solid/components/kbd.ts",
+      "hash": "502c48293722878b806126c4024a69a9a4846bb104d7e36ec6dcec9b5d35a183",
+      "size": 634
     },
     {
       "path": "registry/generated/solid/components/tabs.ts",
@@ -220,6 +241,11 @@
       "size": 1518
     },
     {
+      "path": "registry/generated/solid/solid/kbd.tsx",
+      "hash": "2ffaf64e9c84353a213d795a41002beb9fb4656510785827f95cc3dcbd26c692",
+      "size": 829
+    },
+    {
       "path": "registry/generated/solid/solid/tabs.tsx",
       "hash": "80f0d01d94b4a47a209c012bcb1bb41497818c289602a02787b023fc953f2dab",
       "size": 1565
@@ -236,8 +262,13 @@
     },
     {
       "path": "registry/generated/solid/styles/index.css",
-      "hash": "cae89075f0c641c67d2b9aab9e2cedd2f09ee47868882b24ae19f3360bb77b17",
-      "size": 93
+      "hash": "dfe631f73d7c49d1e5304a70f351446175163971546404f4e9b92873e9ea65e7",
+      "size": 114
+    },
+    {
+      "path": "registry/generated/solid/styles/kbd.css",
+      "hash": "533a95c5b2eee97999e3978d987ad618dacd0280276cfb5d74de74063ab917bd",
+      "size": 2116
     },
     {
       "path": "registry/generated/solid/styles/tabs.css",
@@ -251,8 +282,8 @@
     },
     {
       "path": "registry/generated/svelte/auto-init.ts",
-      "hash": "c474a27e7251218c5cdafc8261f03295870a23dec9dac84d745aa205cd568f42",
-      "size": 717
+      "hash": "95604517b8f7bfbdfbea29f3cb900151f164feaaa2014b0d9f97885f7691cb96",
+      "size": 762
     },
     {
       "path": "registry/generated/svelte/components/badge.ts",
@@ -263,6 +294,11 @@
       "path": "registry/generated/svelte/components/button.ts",
       "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
       "size": 1799
+    },
+    {
+      "path": "registry/generated/svelte/components/kbd.ts",
+      "hash": "502c48293722878b806126c4024a69a9a4846bb104d7e36ec6dcec9b5d35a183",
+      "size": 634
     },
     {
       "path": "registry/generated/svelte/components/tabs.ts",
@@ -331,8 +367,13 @@
     },
     {
       "path": "registry/generated/svelte/styles/index.css",
-      "hash": "cae89075f0c641c67d2b9aab9e2cedd2f09ee47868882b24ae19f3360bb77b17",
-      "size": 93
+      "hash": "dfe631f73d7c49d1e5304a70f351446175163971546404f4e9b92873e9ea65e7",
+      "size": 114
+    },
+    {
+      "path": "registry/generated/svelte/styles/kbd.css",
+      "hash": "533a95c5b2eee97999e3978d987ad618dacd0280276cfb5d74de74063ab917bd",
+      "size": 2116
     },
     {
       "path": "registry/generated/svelte/styles/tabs.css",
@@ -355,14 +396,19 @@
       "size": 1165
     },
     {
+      "path": "registry/generated/svelte/svelte/Kbd.svelte",
+      "hash": "661ebeebc0220b306cd2090a6d1fa3043e0a79f5d37ee26f6079fb1a1f4af2fc",
+      "size": 738
+    },
+    {
       "path": "registry/generated/svelte/svelte/Tabs.svelte",
       "hash": "a34d6c70778268920e06c910494b04ec25c1b0efcac80b65f3aea331cdf3a612",
       "size": 1151
     },
     {
       "path": "registry/generated/vanilla/auto-init.ts",
-      "hash": "c474a27e7251218c5cdafc8261f03295870a23dec9dac84d745aa205cd568f42",
-      "size": 717
+      "hash": "95604517b8f7bfbdfbea29f3cb900151f164feaaa2014b0d9f97885f7691cb96",
+      "size": 762
     },
     {
       "path": "registry/generated/vanilla/components/badge.ts",
@@ -373,6 +419,11 @@
       "path": "registry/generated/vanilla/components/button.ts",
       "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
       "size": 1799
+    },
+    {
+      "path": "registry/generated/vanilla/components/kbd.ts",
+      "hash": "502c48293722878b806126c4024a69a9a4846bb104d7e36ec6dcec9b5d35a183",
+      "size": 634
     },
     {
       "path": "registry/generated/vanilla/components/tabs.ts",
@@ -441,8 +492,13 @@
     },
     {
       "path": "registry/generated/vanilla/styles/index.css",
-      "hash": "cae89075f0c641c67d2b9aab9e2cedd2f09ee47868882b24ae19f3360bb77b17",
-      "size": 93
+      "hash": "dfe631f73d7c49d1e5304a70f351446175163971546404f4e9b92873e9ea65e7",
+      "size": 114
+    },
+    {
+      "path": "registry/generated/vanilla/styles/kbd.css",
+      "hash": "533a95c5b2eee97999e3978d987ad618dacd0280276cfb5d74de74063ab917bd",
+      "size": 2116
     },
     {
       "path": "registry/generated/vanilla/styles/tabs.css",
@@ -456,8 +512,8 @@
     },
     {
       "path": "registry/generated/vue/auto-init.ts",
-      "hash": "c474a27e7251218c5cdafc8261f03295870a23dec9dac84d745aa205cd568f42",
-      "size": 717
+      "hash": "95604517b8f7bfbdfbea29f3cb900151f164feaaa2014b0d9f97885f7691cb96",
+      "size": 762
     },
     {
       "path": "registry/generated/vue/components/badge.ts",
@@ -468,6 +524,11 @@
       "path": "registry/generated/vue/components/button.ts",
       "hash": "30dc6c46037e6ce5917b95f7310210a794d81f8270f55dd3ce5cab301f62ce5e",
       "size": 1799
+    },
+    {
+      "path": "registry/generated/vue/components/kbd.ts",
+      "hash": "502c48293722878b806126c4024a69a9a4846bb104d7e36ec6dcec9b5d35a183",
+      "size": 634
     },
     {
       "path": "registry/generated/vue/components/tabs.ts",
@@ -536,8 +597,13 @@
     },
     {
       "path": "registry/generated/vue/styles/index.css",
-      "hash": "cae89075f0c641c67d2b9aab9e2cedd2f09ee47868882b24ae19f3360bb77b17",
-      "size": 93
+      "hash": "dfe631f73d7c49d1e5304a70f351446175163971546404f4e9b92873e9ea65e7",
+      "size": 114
+    },
+    {
+      "path": "registry/generated/vue/styles/kbd.css",
+      "hash": "533a95c5b2eee97999e3978d987ad618dacd0280276cfb5d74de74063ab917bd",
+      "size": 2116
     },
     {
       "path": "registry/generated/vue/styles/tabs.css",
@@ -558,6 +624,11 @@
       "path": "registry/generated/vue/vue/Button.vue",
       "hash": "2d85efed60147938f917a227d1a57d693059213d1bf4699efc1d1a83f89ab27d",
       "size": 1362
+    },
+    {
+      "path": "registry/generated/vue/vue/Kbd.vue",
+      "hash": "65d568bda4597336c0ee278bc8ff1d6a24308a35add411bc13da7a3a4bdefe57",
+      "size": 804
     },
     {
       "path": "registry/generated/vue/vue/Tabs.vue",
