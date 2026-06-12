@@ -26,13 +26,12 @@ const explicitSource =
 const defaultSourceRoot = path.join(repoRoot, "..", "platform");
 const sourceRoot = path.resolve(explicitSource ?? defaultSourceRoot);
 const sourceCliEntry = path.join(sourceRoot, "dist-cli", "index.js");
+const packageRoot = path.join(repoRoot, "node_modules", "bambiui");
 const packageCliEntry = path.join(repoRoot, "node_modules", ".bin", "bambi");
 const publicRoot = path.join(repoRoot, "public");
 const registryRoot = path.join(publicRoot, "registry");
 const manifestPath = path.join(publicRoot, "registry.json");
 const localRegistryUrl = pathToFileURL(publicRoot).href;
-const frameworks = ["vanilla", "react", "solid", "svelte", "vue"];
-const components = ["button", "tabs"];
 
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
@@ -45,6 +44,22 @@ function run(command, args, options = {}) {
       `${command} ${args.join(" ")} failed with exit code ${result.status}`,
     );
   }
+}
+
+function runJson(command, args, options = {}) {
+  const result = spawnSync(command, args, {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "inherit"],
+    ...options,
+  });
+
+  if (result.status !== 0) {
+    throw new Error(
+      `${command} ${args.join(" ")} failed with exit code ${result.status}`,
+    );
+  }
+
+  return JSON.parse(result.stdout);
 }
 
 async function exists(filePath) {
@@ -92,14 +107,22 @@ async function resolveCliCommand() {
       run("pnpm", ["--dir", sourceRoot, "build:cli"]);
     }
 
-    return { command: "node", prefixArgs: [sourceCliEntry] };
+    return {
+      command: "node",
+      prefixArgs: [sourceCliEntry],
+      localSourceDir: path.join(sourceRoot, "src"),
+    };
   }
 
   if (await exists(packageCliEntry)) {
     console.log(
       "No local platform checkout found; using installed bambiui CLI.",
     );
-    return { command: packageCliEntry, prefixArgs: [] };
+    return {
+      command: packageCliEntry,
+      prefixArgs: [],
+      localSourceDir: path.join(packageRoot, "src"),
+    };
   }
 
   if ((await exists(manifestPath)) && (await exists(registryRoot))) {
@@ -118,6 +141,22 @@ const cliCommand = await resolveCliCommand();
 
 if (!cliCommand) {
   process.exit(0);
+}
+
+const listResult = runJson(cliCommand.command, [
+  ...cliCommand.prefixArgs,
+  "list",
+  "--json",
+]);
+const components = listResult.components.map((component) => component.name);
+const frameworks = listResult.frameworks;
+
+if (components.length === 0) {
+  throw new Error("Cannot refresh registry: CLI returned no components.");
+}
+
+if (frameworks.length === 0) {
+  throw new Error("Cannot refresh registry: CLI returned no frameworks.");
 }
 
 const nextRegistryRoot = await mkdtemp(
@@ -149,6 +188,8 @@ for (const framework of frameworks) {
       "registry/styles/index.css",
       "--registry-url",
       localRegistryUrl,
+      "--local-source-dir",
+      cliCommand.localSourceDir,
       "--force",
     ]);
   }
