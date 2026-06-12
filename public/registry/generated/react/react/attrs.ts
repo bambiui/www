@@ -1,3 +1,16 @@
+export interface BadgeAttrsOptions {
+  variant?: "default" | "secondary" | "outline" | "danger" | "success" | "warning";
+  size?: "sm" | "md" | "lg";
+}
+
+export function badgeAttrs(options: BadgeAttrsOptions = {}) {
+  return {
+    "data-bambi-badge": "",
+    "data-variant": options.variant ?? "default",
+    "data-size": options.size ?? "sm",
+  };
+}
+
 export interface ButtonAttrsOptions {
   variant?: "primary" | "secondary" | "outline" | "ghost" | "danger" | "success" | "warning";
   size?: "sm" | "md" | "lg" | "icon";

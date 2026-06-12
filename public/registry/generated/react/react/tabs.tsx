@@ -3,13 +3,13 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
-  type HTMLAttributes,
+  type ComponentPropsWithoutRef,
   type ReactNode,
 } from "react";
 import { tabs } from "../components/tabs";
 import "../styles/tabs.css";
 
-export interface TabsProps extends HTMLAttributes<HTMLElement> {
+export interface TabsProps extends Omit<ComponentPropsWithoutRef<"div">, "value" | "defaultValue" | "orientation" | "activationMode"> {
   value?: string;
   defaultValue?: string;
   orientation?: "horizontal" | "vertical";
@@ -81,48 +81,66 @@ export const Tabs = forwardRef<HTMLElement, TabsProps>(
   },
 );
 
-export interface TabsListProps extends HTMLAttributes<HTMLElement> {}
+export interface TabsListProps extends Omit<ComponentPropsWithoutRef<"div">, "value"> {
+  value?: string;
+}
 
 export const TabsList = forwardRef<HTMLElement, TabsListProps>(
-  function TabsList(props, forwardedRef) {
+  function TabsList({
+      value,
+      ...props
+    }, forwardedRef) {
     return (
       <div
         {...props}
         ref={forwardedRef as never}
         data-bambi-tabs-list=""
         role="tablist"
+        data-value={value}
       />
     );
   },
 );
 
 
-export interface TabsTriggerProps extends HTMLAttributes<HTMLElement> {}
+export interface TabsTriggerProps extends Omit<ComponentPropsWithoutRef<"button">, "value"> {
+  value?: string;
+}
 
 export const TabsTrigger = forwardRef<HTMLElement, TabsTriggerProps>(
-  function TabsTrigger(props, forwardedRef) {
+  function TabsTrigger({
+      value,
+      ...props
+    }, forwardedRef) {
     return (
       <button
         {...props}
         ref={forwardedRef as never}
         data-bambi-tabs-trigger=""
         role="tab"
+        data-value={value}
       />
     );
   },
 );
 
 
-export interface TabsContentProps extends HTMLAttributes<HTMLElement> {}
+export interface TabsContentProps extends Omit<ComponentPropsWithoutRef<"div">, "value"> {
+  value?: string;
+}
 
 export const TabsContent = forwardRef<HTMLElement, TabsContentProps>(
-  function TabsContent(props, forwardedRef) {
+  function TabsContent({
+      value,
+      ...props
+    }, forwardedRef) {
     return (
       <div
         {...props}
         ref={forwardedRef as never}
         data-bambi-tabs-content=""
         role="tabpanel"
+        data-value={value}
       />
     );
   },

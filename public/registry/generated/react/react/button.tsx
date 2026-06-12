@@ -3,13 +3,13 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
-  type HTMLAttributes,
+  type ComponentPropsWithoutRef,
   type ReactNode,
 } from "react";
 import { button } from "../components/button";
 import "../styles/button.css";
 
-export interface ButtonProps extends HTMLAttributes<HTMLElement> {
+export interface ButtonProps extends Omit<ComponentPropsWithoutRef<"button">, "variant" | "size" | "disabled" | "loading"> {
   variant?: "primary" | "secondary" | "outline" | "ghost" | "danger" | "success" | "warning";
   size?: "sm" | "md" | "lg" | "icon";
   disabled?: boolean;
